@@ -1,15 +1,32 @@
-'use strict';
+var Blockly = require('../index');
 
-var assert = require('chai').assert;
+var xmlText = '<xml xmlns="http://www.w3.org/1999/xhtml">' +
+    '<block type="variables_set">' +
+    '<field name="VAR">blockly</field>' +
+    '<value name="VALUE">' +
+    '<block type="text">' +
+    '<field name="TEXT">Hello world!</field>' +
+    '</block>' +
+    '</value>' +
+    '</block>' +
+    '</xml>';
 
-var Blockly = require('../index.js');
+try {
+  var xml = Blockly.Xml.textToDom(xmlText);
+}
+catch (e) {
+  console.log(e);
+  return ''
+}
 
-describe('Blockly', function() {
-  it('should convert xml to js code', function() {
-    var code = Blockly.xmlToJs('<xml><block type="math_number"><field name="NUM">42</field></block></xml>');
+var workspace = new Blockly.Workspace();
+Blockly.Xml.domToWorkspace(workspace, xml);
+var code = Blockly.JavaScript.workspaceToCode(workspace);
 
-    assert.equal(code, '42;\n')
-  });
-});
+console.log(code) // blockly = 'Hello Node.js!'
 
+/**
+ var blockly;
 
+ blockly == 'Hello Node.js!';
+ */

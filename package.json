@@ -1,11 +1,14 @@
 {
-  "name": "node-blocky",
-  "version": "0.0.1",
-  "description": "",
+  "name": "node-blockly",
+  "version": "0.0.2",
+  "description": "Blockly for Node.js",
   "main": "index.js",
   "directories": {
     "test": "test"
   },
+  "keywords": [
+    "blockly"
+  ],
   "dependencies": {
     "lodash": "^3.8.0",
     "xmldom": "^0.1.19"
@@ -18,16 +21,16 @@
     "mocha": "^2.2.5"
   },
   "scripts": {
-    "test": "./node_modules/mocha/bin/mocha test/test.js"
+    "test": "./node_modules/mocha/bin/mocha test/*_test.js"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/unitecontrol/node-blocky"
   },
-  "author": "",
+  "author": "Eugene Formanenko <mo4islona@gmail.com>",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/unitecontrol/node-blocky/issues"
   },
-  "homepage": "https://github.com/unitecontrol/ode-blocky"
+  "homepage": "https://github.com/unitecontrol/node-blocky"
 }
