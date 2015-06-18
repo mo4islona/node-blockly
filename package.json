@@ -1,0 +1,33 @@
+{
+  "name": "node-blocky",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "lodash": "^3.8.0",
+    "xmldom": "^0.1.19"
+  },
+  "devDependencies": {
+    "chai": "^3.0.0",
+    "gulp": "^3.8.11",
+    "gulp-insert": "^0.4.0",
+    "gulp-replace": "^0.5.3",
+    "mocha": "^2.2.5"
+  },
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha test/test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/unitecontrol/node-blocky"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/unitecontrol/node-blocky/issues"
+  },
+  "homepage": "https://github.com/unitecontrol/ode-blocky"
+}
