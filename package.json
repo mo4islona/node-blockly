@@ -1,6 +1,6 @@
 {
   "name": "node-blockly",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Blockly for Node.js",
   "main": "index.js",
   "directories": {
@@ -25,12 +25,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/unitecontrol/node-blockly"
+    "url": "https://github.com/mo4islona/node-blockly"
   },
   "author": "Eugene Formanenko <mo4islona@gmail.com>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/unitecontrol/node-blockly/issues"
+    "url": "https://github.com/mo4islona/node-blockly/issues"
   },
-  "homepage": "https://github.com/unitecontrol/node-blockly"
+  "homepage": "https://github.com/mo4islona/node-blockly"
 }
