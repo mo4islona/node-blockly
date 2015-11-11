@@ -8,10 +8,8 @@ gulp.task('blockly', function() {
   return gulp.src('blockly/blockly_compressed.js')
       .pipe(replace(/goog\.global\s*=\s*this;/, 'goog.global=that;'))
       .pipe(insert.wrap('var DOMParser = require("xmldom").DOMParser; var XMLSerializer = require("xmldom").XMLSerializer; module.exports = (function(){  var that = {}; that.navigator=""; ', ' return Blockly;})()'))
-      //.pipe(replace(/\(new\s+XMLSerializer\)\.serializeToString\(a\)/g, '(XMLSerializer.serializeToString(a))'))
       .pipe(gulp.dest('lib'))
 });
-//\(new XMLSerializer\)\.serializeToString\(a\)
 
 gulp.task('blocks', function() {
   return gulp.src('blockly/blocks_compressed.js')
