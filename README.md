@@ -47,7 +47,7 @@ catch (e) {
 }
 
 var workspace = new Blockly.Workspace();
-Blockly.Xml.domToWorkspace(workspace, xml);
+Blockly.Xml.domToWorkspace(xml, workspace);
 var code = Blockly.JavaScript.workspaceToCode(workspace);
 
 console.log(code)  
