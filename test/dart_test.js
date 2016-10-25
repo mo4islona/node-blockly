@@ -12,23 +12,23 @@ function xmlToDart(xml) {
   catch (e) {
     return ''
   }
-
+  
   var workspace = new Blockly.Workspace();
-  Blockly.Xml.domToWorkspace(workspace, xml);
+  Blockly.Xml.domToWorkspace(xml, workspace);
   return Blockly.Dart.workspaceToCode(workspace);
 }
 
-describe('PHP Generator', function() {
+describe('Dart Generator', function() {
   it('should convert valid xml to js code', function() {
     var code = xmlToDart(ifBlockXml);
-
+    
     assert.equal(code, 'main() {\n  if (6 * 7 == 42) {\n    print(\'Dont panic\');\n  } else {\n    print(\'Panic\');\n  }\n}')
   });
-
+  
   it('should convert invalid xml to empty string', function() {
     var code = xmlToDart('<block type="math_number"><field name="NUM">42</field></block>');
-
-    assert.equal(code, '')
+    
+    assert.equal(code, 'main() {\n}')
   });
 });
 

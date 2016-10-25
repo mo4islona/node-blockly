@@ -14,7 +14,7 @@ function xmlToPHP(xml) {
   }
 
   var workspace = new Blockly.Workspace();
-  Blockly.Xml.domToWorkspace(workspace, xml);
+  Blockly.Xml.domToWorkspace(xml, workspace);
   return Blockly.PHP.workspaceToCode(workspace);
 }
 
@@ -27,7 +27,7 @@ describe('PHP Generator', function() {
 
   it('should convert invalid xml to empty string', function() {
     var code = xmlToPHP('<block type="math_number"><field name="NUM">42</field></block>');
-
+    
     assert.equal(code, '')
   });
 });

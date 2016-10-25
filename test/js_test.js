@@ -15,7 +15,7 @@ function xmlToJs(xml) {
   }
 
   var workspace = new Blockly.Workspace();
-  Blockly.Xml.domToWorkspace(workspace, xml);
+  Blockly.Xml.domToWorkspace(xml, workspace);
   return Blockly.JavaScript.workspaceToCode(workspace);
 }
 
