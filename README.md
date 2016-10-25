@@ -16,15 +16,9 @@ To use all generators
 var Blockly = require('node-blockly');
 ```
 
-or you may use only one generator to decrease memory usage
-
+or you may use only standalone generators to decrease memory usage
 ```js 
-var Blockly = require('node-blockly/js');
-```
-
-
-```js 
-var Blockly = require('node-blockly/python');
+var Blockly = require('node-blockly/lua');
 ```
 
 **Example**
