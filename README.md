@@ -1,5 +1,8 @@
 # Blockly comes to Node.js
 
+![Build](https://travis-ci.org/mo4islona/node-blockly.svg?branch=master)
+
+
 Supports `JavaScript`, `PHP`, `Dart`, `Lua` and `Python` generators.
 
 
