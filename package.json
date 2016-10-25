@@ -1,6 +1,6 @@
 {
   "name": "node-blockly",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Blockly for Node.js",
   "main": "index.js",
   "directories": {
@@ -10,8 +10,13 @@
     "blockly"
   ],
   "dependencies": {
-    "lodash": "^3.8.0",
-    "xmldom": "^0.1.19"
+    "chai": "^3.5.0",
+    "gulp": "^3.9.1",
+    "gulp-insert": "^0.5.0",
+    "gulp-replace": "^0.5.4",
+    "lodash": "^4.16.4",
+    "mocha": "^3.1.2",
+    "xmldom": "^0.1.22"
   },
   "devDependencies": {
     "chai": "^3.0.0",
