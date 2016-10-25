@@ -5,6 +5,14 @@ var assert = require('chai').assert;
 var Blockly = require('../index.js'),
     ifBlockXml = require('./xml/if');
 
+
+var res = `if (6 * 7 == 42) {
+  window.alert('Dont panic');
+} else {
+  window.alert('Panic');
+}
+`
+
 function xmlToJs(xml) {
   try {
     var xml = Blockly.Xml.textToDom(xml);
@@ -23,7 +31,7 @@ describe('JS Generator', function() {
   it('should convert valid xml to js code', function() {
     var code = xmlToJs(ifBlockXml);
 
-    assert.equal(code, "if (6 * 7 == 42) {\n  window.alert(\'Dont panic\');\n} else {\n  window.alert(\'Panic\');\n}\n")
+    assert.equal(code, res)
   });
 
   it('should convert invalid xml to empty string', function() {

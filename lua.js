@@ -2,6 +2,6 @@
 
 var Blockly = require('./_blockly')
 
-Blockly.JavaScript = require('./lib/javascript_compressed')(Blockly);
+Blockly.Lua = require('./lib/lua_compressed')(Blockly);
 
 module.exports = Blockly;

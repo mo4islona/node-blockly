@@ -2,6 +2,6 @@
 
 var Blockly = require('./_blockly')
 
-Blockly.JavaScript = require('./lib/javascript_compressed')(Blockly);
+Blockly.PHP = require('./lib/php_compressed')(Blockly);
 
 module.exports = Blockly;
