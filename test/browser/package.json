@@ -1,0 +1,7 @@
+{
+  "name": "node-blockly browser test",
+  "version": "0.0.1",
+  "devDependencies": {
+    "webpack": "^1.13.3"
+  }
+}
