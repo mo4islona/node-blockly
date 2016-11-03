@@ -1,5 +1,8 @@
 # Blockly comes to Node.js
 
+![Build](https://travis-ci.org/mo4islona/node-blockly.svg?branch=master)
+
+
 Supports `JavaScript`, `PHP`, `Dart`, `Lua` and `Python` generators.
 
 
@@ -16,7 +19,7 @@ To use all generators
 var Blockly = require('node-blockly');
 ```
 
-or you may use only standalone generators to decrease memory usage
+or you may use standalone generators to decrease memory usage
 ```js 
 var Blockly = require('node-blockly/lua');
 ```
