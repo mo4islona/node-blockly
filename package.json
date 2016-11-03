@@ -1,13 +1,14 @@
 {
   "name": "node-blockly",
   "version": "1.0.7",
-  "description": "Blockly for Node.js",
+  "description": "Blockly for Node.js and Browser as CommonJS module",
   "main": "index.js",
   "directories": {
     "test": "test"
   },
   "keywords": [
-    "blockly"
+    "blockly",
+    "commonjs"
   ],
   "dependencies": {
     "chai": "^3.5.0",

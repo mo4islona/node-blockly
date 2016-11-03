@@ -1,4 +1,4 @@
-var Blockly = require('../../browser')
+var Blockly = require('node-blockly/browser')
 
 
 var xmlText = require('../xml/if');

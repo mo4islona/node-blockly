@@ -1,4 +1,4 @@
-# Blockly comes to Node.js
+# Blockly for to Node.js and Browser as CommonJS module
 
 ![Build](https://travis-ci.org/mo4islona/node-blockly.svg?branch=master)
 
@@ -12,7 +12,7 @@ Supports `JavaScript`, `PHP`, `Dart`, `Lua` and `Python` generators.
 npm install node-blockly
 ```
 
-**Usage**
+**Node.js**
 
 To use all generators
 ```js
@@ -23,6 +23,12 @@ or you may use standalone generators to decrease memory usage
 ```js 
 var Blockly = require('node-blockly/lua');
 ```
+
+**Browser**
+```js
+var Blockly = require('node-blockly/browser');
+```
+
 
 **Example**
 
