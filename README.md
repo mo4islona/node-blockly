@@ -1,4 +1,4 @@
-# Blockly for to Node.js and Browser as CommonJS module
+# Blockly for Node.js and Browser as CommonJS module
 
 ![Build](https://travis-ci.org/mo4islona/node-blockly.svg?branch=master)
 
