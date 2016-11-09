@@ -1,12 +1,10 @@
 module.exports = {
-  entry: "./entry.js",
+  entry: {
+    index: "./index.js",
+    inject: "./inject.js",
+  },
   output: {
     path: __dirname,
-    filename: "bundle.js"
+    filename: "[name].build.js"
   },
-  module: {
-    loaders: [
-      { test: /\.css$/, loader: "style!css" }
-    ]
-  }
 };
