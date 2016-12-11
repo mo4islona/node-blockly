@@ -29,7 +29,7 @@
   },
   "scripts": {
     "blockly:upgrade": "cd blockly && git fetch && git reset --hard origin/master && cd .. && npm run prepublish",
-    "prepublish": "gulp build",
+    "prepublish": "rm -rf lib && mkdir lib && gulp build",
     "test": "mocha test/*_test.js"
   },
   "repository": {

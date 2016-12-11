@@ -19,9 +19,9 @@ var document = {
 }
 `;
 
-var _browserRename = rename(function(path) {
+var _browserRename = function(path) {
   path.basename += "_browser";
-})
+}
 
 gulp.task('blockly', function() {
   return gulp.src('blockly/blockly_compressed.js')
@@ -47,7 +47,7 @@ gulp.task('blockly_browser', function() {
           //....ORIGINAL CODE....
           `return Blockly;
       })()`))
-      .pipe(_browserRename)
+      .pipe(rename(_browserRename))
       .pipe(gulp.dest('lib'))
 });
 
@@ -71,7 +71,7 @@ gulp.task('blocks_browser', function() {
           //....ORIGINAL CODE....
           `return Blockly.Blocks;
         }`))
-      .pipe(_browserRename)
+      .pipe(rename(_browserRename))
       .pipe(gulp.dest('lib'))
 });
 
