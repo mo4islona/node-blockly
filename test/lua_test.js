@@ -7,7 +7,7 @@ var Blockly = require('../index.js'),
 
 var res = `if 6 * 7 == 42 then
   print('Dont panic')
- else
+else
   print('Panic')
 end
 `;
