@@ -1,6 +1,6 @@
 {
   "name": "node-blockly",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "Blockly for Node.js and Browser as CommonJS module",
   "main": "index.js",
   "directories": {
@@ -28,7 +28,9 @@
     "mocha": "^2.2.5"
   },
   "scripts": {
-    "test": "./node_modules/mocha/bin/mocha test/*_test.js"
+    "blockly:upgrade": "cd blockly && git fetch && git reset --hard origin/master && cd .. && npm run prepublish",
+    "prepublish": "rm -rf lib && mkdir lib && gulp build",
+    "test": "mocha test/*_test.js"
   },
   "repository": {
     "type": "git",
