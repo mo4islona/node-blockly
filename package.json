@@ -28,7 +28,7 @@
     "mocha": "^2.2.5"
   },
   "scripts": {
-    "postinstall": "git submodule init",
+    "postinstall": "git submodule init && git submodule update --recursive --remote",
     "blockly:upgrade": "git submodule update --recursive --remote",
     "prepublish": "rm -rf lib && mkdir lib && gulp build",
     "test": "mocha test/*_test.js"
