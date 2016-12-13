@@ -25,13 +25,12 @@ var _browserRename = function(path) {
 
 gulp.task('blockly', function() {
   return gulp.src('blockly/blockly_compressed.js')
-      .pipe(replace(/goog\.global\s*=\s*this;/, 'goog.global=that;'))
+      .pipe(replace(/goog\.global\s*=\s*this;/, 'goog.global=global;'))
       .pipe(insert.wrap(`
       var DOMParser = require("xmldom").DOMParser; 
       var XMLSerializer = require("xmldom").XMLSerializer; 
       ${document}
-      module.exports = (function(){  
-        var that = {}; that.navigator="";`,
+      module.exports = (function(){`,
           //....ORIGINAL CODE....
           `return Blockly;
       })()`))
@@ -40,10 +39,9 @@ gulp.task('blockly', function() {
 
 gulp.task('blockly_browser', function() {
   return gulp.src('blockly/blockly_compressed.js')
-      .pipe(replace(/goog\.global\s*=\s*this;/, 'goog.global=that;'))
+      .pipe(replace(/goog\.global\s*=\s*this;/, 'goog.global=window;'))
       .pipe(insert.wrap(`
-      module.exports = (function(){
-        var that = {}; that.navigator=window.navigator;`,
+      module.exports = (function(){`,
           //....ORIGINAL CODE....
           `return Blockly;
       })()`))
