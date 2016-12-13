@@ -28,7 +28,7 @@
     "mocha": "^2.2.5"
   },
   "scripts": {
-    "blockly:upgrade": "cd blockly && git fetch && git reset --hard origin/master && cd .. && npm run prepublish",
+    "blockly:upgrade": "git submodule update --recursive --remote",
     "prepublish": "rm -rf lib && mkdir lib && gulp build",
     "test": "mocha test/*_test.js"
   },
