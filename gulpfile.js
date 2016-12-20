@@ -32,7 +32,7 @@ gulp.task('blockly', function() {
       ${document}
       module.exports = (function(){`,
           //....ORIGINAL CODE....
-          `return Blockly;
+          `Blockly.goog=goog;return Blockly;
       })()`))
       .pipe(gulp.dest('lib'))
 });
@@ -43,7 +43,7 @@ gulp.task('blockly_browser', function() {
       .pipe(insert.wrap(`
       module.exports = (function(){`,
           //....ORIGINAL CODE....
-          `return Blockly;
+          `Blockly.goog=goog;return Blockly;
       })()`))
       .pipe(rename(_browserRename))
       .pipe(gulp.dest('lib'))
@@ -53,6 +53,7 @@ gulp.task('blocks', function() {
   return gulp.src('blockly/blocks_compressed.js')
       .pipe(insert.wrap(`
         module.exports = function(Blockly){
+          var goog = Blockly.goog;
           ${document}
           Blockly.Blocks={};`,
           //....ORIGINAL CODE....
@@ -65,6 +66,7 @@ gulp.task('blocks_browser', function() {
   return gulp.src('blockly/blocks_compressed.js')
       .pipe(insert.wrap(`
         module.exports = function(Blockly){
+          var goog = Blockly.goog;
           Blockly.Blocks={};`,
           //....ORIGINAL CODE....
           `return Blockly.Blocks;
