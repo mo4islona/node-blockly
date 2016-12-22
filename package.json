@@ -1,6 +1,6 @@
 {
   "name": "node-blockly",
-  "version": "1.0.13",
+  "version": "1.0.14",
   "description": "Blockly for Node.js and Browser as CommonJS module",
   "main": "index.js",
   "directories": {
@@ -11,13 +11,7 @@
     "commonjs"
   ],
   "dependencies": {
-    "chai": "^3.5.0",
-    "gulp": "^3.9.1",
-    "gulp-insert": "^0.5.0",
-    "gulp-replace": "^0.5.4",
-    "lodash": "^4.16.4",
-    "mocha": "^3.1.2",
-    "xmldom": "^0.1.22"
+    "lodash": "^4.16.4"
   },
   "devDependencies": {
     "chai": "^3.0.0",
@@ -25,7 +19,8 @@
     "gulp-insert": "^0.4.0",
     "gulp-rename": "^1.2.2",
     "gulp-replace": "^0.5.3",
-    "mocha": "^2.2.5"
+    "mocha": "^2.2.5",
+    "xmldom": "^0.1.22"
   },
   "scripts": {
     "blockly:upgrade": "git submodule init && git submodule update --recursive --remote",
