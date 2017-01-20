@@ -6,13 +6,13 @@ var Blockly = require('../index.js');
 
 describe('Blockly', function() {
   it('shortestStringLength should return correct length', function() {
-    var len = Blockly.shortestStringLength('one,two,three,four,five'.split(','));
+    var len = Blockly.utils.shortestStringLength('one,two,three,four,five'.split(','));
     assert.equal(3, len, 'Length of "one"');
-    len = Blockly.shortestStringLength('one,two,three,four,five,'.split(','));
+    len = Blockly.utils.shortestStringLength('one,two,three,four,five,'.split(','));
     assert.equal(0, len, 'Length of ""');
-    len = Blockly.shortestStringLength(['Hello World']);
+    len = Blockly.utils.shortestStringLength(['Hello World']);
     assert.equal(11, len, 'List of one');
-    len = Blockly.shortestStringLength([]);
+    len = Blockly.utils.shortestStringLength([]);
     assert.equal(0, len, 'Empty list');
   });
 });
