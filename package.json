@@ -11,7 +11,8 @@
     "commonjs"
   ],
   "dependencies": {
-    "lodash": "^4.16.4"
+    "lodash": "^4.16.4",
+    "xmldom": "^0.1.22"
   },
   "devDependencies": {
     "chai": "^3.0.0",
