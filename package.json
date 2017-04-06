@@ -1,6 +1,6 @@
 {
   "name": "node-blockly",
-  "version": "1.0.16",
+  "version": "1.0.17",
   "description": "Blockly for Node.js and Browser as CommonJS module",
   "main": "index.js",
   "directories": {
@@ -11,7 +11,7 @@
     "commonjs"
   ],
   "dependencies": {
-    "lodash": "^4.16.4",
+    "lodash": "^4.17.4",
     "xmldom": "^0.1.22"
   },
   "devDependencies": {
