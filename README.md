@@ -31,7 +31,7 @@ var Blockly = require('node-blockly/browser');
 ```
 
 ## Example
-
+**Node.js**
 ```js
 var Blockly = require('node-blockly');
 
@@ -67,3 +67,7 @@ var blockly;
 
 blockly = 'Hello Node.js!';
 ```
+
+**Browser**
+
+[Example](https://github.com/mo4islona/node-blockly/tree/master/test/browser/README.md)

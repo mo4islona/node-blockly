@@ -1,8 +1,5 @@
 {
-  "name": "node-blockly-browser",
-  "version": "0.0.1",
   "devDependencies": {
-    "webpack": "^1.13.3",
-    "node-blockly": "https://github.com/mo4islona/node-blockly"
+    "webpack": "^1.13.3"
   }
 }

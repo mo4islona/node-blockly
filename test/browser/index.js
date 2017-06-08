@@ -1,16 +1,16 @@
-var Blockly = require('node-blockly/browser')
+const Blockly = require('../../browser');
 
-
-var xmlText = require('../xml/if');
+let xmlText = require('../xml/if');
+let xml;
 
 try {
-  var xml = Blockly.Xml.textToDom(xmlText);
+  xml = Blockly.Xml.textToDom(xmlText);
 }
 catch (e) {
   console.error(e);
 }
 
-var workspace = new Blockly.Workspace();
+const workspace = new Blockly.Workspace();
 Blockly.Xml.domToWorkspace(xml, workspace);
 
 document.getElementById('js').innerText = Blockly.JavaScript.workspaceToCode(workspace)
