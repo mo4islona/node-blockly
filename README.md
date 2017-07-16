@@ -71,10 +71,9 @@ blockly = 'Hello Node.js!';
 
 **Browser**
 
-[Example](https://github.com/mo4islona/node-blockly/tree/master/test/browser)
+[Live demo](http://mo4islona.github.io/blockly/) ([source](https://github.com/mo4islona/mo4islona.github.io/blob/master/blockly/index.js))
 
 ## Internationalization
-
 
 ```js
 import Blockly from 'node-blockly/browser';
