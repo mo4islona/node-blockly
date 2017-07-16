@@ -1,14 +1,23 @@
 import Blockly from '../../browser';
 
 let editor;
+let code = document.getElementById('startBlocks')
 
 function render(element, toolbox) {
   if( editor ) {
+    editor.removeChangeListener(updateCode);
+    code = Blockly.Xml.workspaceToDom(editor)
     editor.dispose()
   }
-  return Blockly.inject(element, {
+  editor = Blockly.inject(element, {
     toolbox: document.getElementById(toolbox)
-  });
+  })
+
+  Blockly.Xml.domToWorkspace(code, editor);
+
+  editor.addChangeListener(updateCode);
+
+  return editor
 }
 
 function updateCode() {
@@ -20,14 +29,12 @@ function updateCode() {
 }
 
 editor = render('editor', 'toolbox');
-Blockly.Xml.domToWorkspace(document.getElementById('startBlocks'), editor);
 
-editor.addChangeListener(updateCode);
 updateCode();
 
 document.getElementById('locale').onchange = (e) => {
   import('../../lib/i18n/' + e.target.value).then((locale) => {
     Blockly.setLocale(locale);
-    editor = render('editor', 'toolbox');
+    render('editor', 'toolbox');
   })
 }
