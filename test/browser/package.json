@@ -1,5 +1,7 @@
 {
-  "devDependencies": {
-    "webpack": "^1.13.3"
+  "dependencies": {
+    "html-webpack-plugin": "^2.29.0",
+    "webpack": "^3.3.0",
+    "webpack-dev-server": "^2.5.1"
   }
 }

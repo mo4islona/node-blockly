@@ -2,29 +2,43 @@
 <head>
     <meta charset="utf-8">
     <style>
-        div {
+        pre {
             font-size: 10px;
             border: 1px solid #aaa;
             margin: 0 0 20px 0;
             padding: 10px;
         }
 
-        p {
+        p.label {
             margin: 5px 0
         }
     </style>
 </head>
 <body>
-<p>JS</p>
-<div id="js"></div>
-<p>PHP</p>
-<div id="php"></div>
-<p>Lua</p>
-<div id="lua"></div>
-<p>Dart</p>
-<div id="dart"></div>
-<p>Python</p>
-<div id="python"></div>
-<script type="text/javascript" src="index.build.js" charset="utf-8"></script>
+<p class="label">JS</p>
+<pre id="js"></pre>
+<p class="label">PHP</p>
+<pre id="php"></pre>
+<p class="label">Lua</p>
+<pre id="lua"></pre>
+<p class="label">Dart</p>
+<pre id="dart"></pre>
+<p class="label">Python</p>
+<pre id="python"></pre>
+
+<hr />
+
+<div id="editor" style="height: 480px; width: 600px;"></div>
+
+<xml id="toolbox" style="display: none">
+    <block type="controls_if"></block>
+    <block type="logic_compare"></block>
+    <block type="controls_repeat_ext"></block>
+    <block type="math_number"></block>
+    <block type="math_arithmetic"></block>
+    <block type="text"></block>
+    <block type="text_print"></block>
+</xml>
+
 </body>
 </html>

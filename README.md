@@ -6,10 +6,9 @@
 Supports `JavaScript`, `PHP`, `Dart`, `Lua` and `Python` generators.
 
 
-
 ## Install
 ```
-npm install node-blockly
+yarn add node-blockly
 ```
 ## Usage
 **Node.js**
@@ -70,4 +69,15 @@ blockly = 'Hello Node.js!';
 
 **Browser**
 
-[Example](https://github.com/mo4islona/node-blockly/tree/master/test/browser/README.md)
+[Example](https://github.com/mo4islona/node-blockly/tree/master/test/browser)
+
+## Internationalization
+
+
+```js
+import Blockly from 'node-blockly/browser';
+import De from 'node-blockly/lib/i18n/de';
+Blockly.setLocale(De)
+```
+
+

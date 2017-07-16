@@ -1,8 +1,10 @@
-const Blockly = require('../../browser');
+import  Blockly from '../../browser';
+import  xmlText from '../xml/if';
 
-let xmlText = require('../xml/if');
+import De from '../../lib/i18n/de';
+Blockly.setLocale(De)
+
 let xml;
-
 try {
   xml = Blockly.Xml.textToDom(xmlText);
 }
@@ -19,3 +21,6 @@ document.getElementById('lua').innerText = Blockly.Lua.workspaceToCode(workspace
 document.getElementById('dart').innerText = Blockly.Dart.workspaceToCode(workspace)
 document.getElementById('python').innerText = Blockly.Python.workspaceToCode(workspace)
 
+const editor = Blockly.inject('editor', {
+  toolbox: document.getElementById('toolbox')
+});

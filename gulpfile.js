@@ -106,11 +106,11 @@ gulp.task('lua', function() {
       .pipe(gulp.dest('lib'))
 });
 
-gulp.task('en', function() {
-  return gulp.src('blockly/msg/js/en.js')
-      .pipe(replace(/goog\.[^\n]+/g, ''))
-      .pipe(insert.wrap('var Blockly = {}; Blockly.Msg={};  module.exports = function(){ ', 'return Blockly.Msg;}'))
-      .pipe(gulp.dest('lib/i18n/'))
+gulp.task('i18n', function() {
+  return gulp.src('blockly/msg/js/*.js')
+    .pipe(replace(/goog\.[^\n]+/g, ''))
+    .pipe(insert.wrap('var Blockly = {}; Blockly.Msg={};  module.exports = function(){ ', 'return Blockly.Msg;}'))
+    .pipe(gulp.dest('lib/i18n/'))
 });
 
 gulp.task('build', [
@@ -118,12 +118,12 @@ gulp.task('build', [
   'blocks_browser',
   'blockly',
   'blockly_browser',
-  'en',
+  'i18n',
   'js',
   'php',
   'dart',
   'python',
-  'lua'
+  'lua',
 ]);
 
 
