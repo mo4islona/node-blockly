@@ -12,33 +12,61 @@
         p.label {
             margin: 5px 0
         }
+        
+        .demo {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+        }
+
+        .demo > div {
+            flex: 1 1
+        }
+
+        select {
+            margin-bottom: 10px;
+        }
     </style>
 </head>
 <body>
-<p class="label">JS</p>
-<pre id="js"></pre>
-<p class="label">PHP</p>
-<pre id="php"></pre>
-<p class="label">Lua</p>
-<pre id="lua"></pre>
-<p class="label">Dart</p>
-<pre id="dart"></pre>
-<p class="label">Python</p>
-<pre id="python"></pre>
 
-<hr />
+<div class="demo">
+    <div>
+        <select id="locale">
+            <option value="en">EN</option>
+            <option value="fr">FR</option>
+            <option value="de">DE</option>
+        </select>
 
-<div id="editor" style="height: 480px; width: 600px;"></div>
+        <div id="editor" style="height: 480px; width: 600px;">
 
-<xml id="toolbox" style="display: none">
-    <block type="controls_if"></block>
-    <block type="logic_compare"></block>
-    <block type="controls_repeat_ext"></block>
-    <block type="math_number"></block>
-    <block type="math_arithmetic"></block>
-    <block type="text"></block>
-    <block type="text_print"></block>
-</xml>
+        </div>
+
+        <xml id="toolbox" style="display: none">
+            <block type="controls_if"></block>
+            <block type="logic_compare"></block>
+            <block type="controls_repeat_ext"></block>
+            <block type="math_number"></block>
+            <block type="math_arithmetic"></block>
+            <block type="text"></block>
+            <block type="text_print"></block>
+        </xml>
+    </div>
+    <div>
+        <p class="label">JS</p>
+        <pre id="js"></pre>
+        <p class="label">PHP</p>
+        <pre id="php"></pre>
+        <p class="label">Lua</p>
+        <pre id="lua"></pre>
+        <p class="label">Dart</p>
+        <pre id="dart"></pre>
+        <p class="label">Python</p>
+        <pre id="python"></pre>
+    </div>
+</div>
+
+
 
 </body>
 </html>
