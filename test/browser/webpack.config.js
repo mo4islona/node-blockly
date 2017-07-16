@@ -10,7 +10,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: `${__dirname}/index.html`,
+      template: `${__dirname}/index.tpl.html`,
       minify: {
         removeComments: true,
         collapseWhitespace: true,

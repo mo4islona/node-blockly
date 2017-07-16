@@ -2,11 +2,13 @@
 
 ```bash
 cd test/browser
-webpack
+yarn 
+yarn start 
 ```
 
 ## Test
 
 ```bash
-open index.html
+open http://localhost:8080/
+
 ```
