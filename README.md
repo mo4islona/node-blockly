@@ -80,4 +80,7 @@ import De from 'node-blockly/lib/i18n/de';
 Blockly.setLocale(De)
 ```
 
+Dynamic imports also works but Blockly doesn't re-render workspace. You must [re-render it manually after locale loaded](https://github.com/mo4islona/node-blockly/blob/master/test/browser/index.js#L25)
+
+
 
