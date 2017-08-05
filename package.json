@@ -1,6 +1,6 @@
 {
   "name": "node-blockly",
-  "version": "1.0.23",
+  "version": "1.0.24",
   "description": "Blockly for Node.js and Browser as CommonJS module",
   "main": "index.js",
   "directories": {

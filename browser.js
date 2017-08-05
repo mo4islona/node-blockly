@@ -2,20 +2,12 @@ var _ = require('lodash');
 
 var Blockly = require('./lib/blockly_compressed_browser');
 
-var locales = {}
-
-Blockly.setLocale = function(name, locale) {
-  if(locales[name]) {
-    console.log('EXISTS', name)
-    Blockly.Msg = _.extend(locales[name], Blockly.Msg)();
-    return
-  }
-
-  Blockly.Msg = _.extend(locale, Blockly.Msg)();
-  locales[name] = locale
+Blockly.setLocale = function(locale) {
+  Blockly.Msg = _.extend(locale, Blockly.Msg);
+  Blockly.Msg = Blockly.Msg();
 }
 
-Blockly.setLocale('en', require('./lib/i18n/en'))
+Blockly.setLocale(require('./lib/i18n/en'))
 
 Blockly.Blocks = _.extend(Blockly.Blocks, require('./lib/blocks_compressed_browser')(Blockly));
 
