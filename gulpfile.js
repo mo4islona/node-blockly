@@ -20,7 +20,9 @@ gulp.task('blockly', function() {
       var JSDOM = require('jsdom').JSDOM;
       var window = (new JSDOM()).window;
       var DOMParser = window.DOMParser;
-      var XMLSerializer = require('xmlserializer');
+      var xmlshim = require('xmlshim');
+      var XMLSerializer = xmlshim.XMLSerializer;
+      var DOMParser = xmlshim.DOMParser; 
       // var DOMParser = require("xmldom").DOMParser; 
       // var XMLSerializer = require("xmldom").XMLSerializer; 
       ${document}

@@ -13,7 +13,7 @@
   "dependencies": {
     "jsdom": "^11.3.0",
     "xmldom": "^0.1.22",
-    "xmlserializer": "^0.6.0"
+    "xmlshim": "^0.2.1"
   },
   "devDependencies": {
     "chai": "^3.0.0",
