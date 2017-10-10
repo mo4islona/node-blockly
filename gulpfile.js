@@ -6,17 +6,7 @@ var gulp = require('gulp'),
     insert = require('gulp-insert');
 
 var document = `
-var document = {
-   createTextNode: function() {},
-   createElement: function() {
-      return {
-        hasChildNodes: function() {},
-        hasAttributes: function() {},
-        setAttribute: function() {},
-        appendChild: function() {}
-      }
-   }
-}
+var document = (new (require('jsdom').JSDOM)()).window.document;
 `;
 
 var _browserRename = function(path) {
@@ -27,8 +17,12 @@ gulp.task('blockly', function() {
   return gulp.src('blockly/blockly_compressed.js')
       .pipe(replace(/goog\.global\s*=\s*this;/, 'goog.global=global;'))
       .pipe(insert.wrap(`
-      var DOMParser = require("xmldom").DOMParser; 
-      var XMLSerializer = require("xmldom").XMLSerializer; 
+      var JSDOM = require('jsdom').JSDOM;
+      var window = (new JSDOM()).window;
+      var DOMParser = window.DOMParser;
+      var XMLSerializer = require('xmlserializer');
+      // var DOMParser = require("xmldom").DOMParser; 
+      // var XMLSerializer = require("xmldom").XMLSerializer; 
       ${document}
       module.exports = (function(){`,
           //....ORIGINAL CODE....
