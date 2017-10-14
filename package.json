@@ -11,7 +11,8 @@
     "commonjs"
   ],
   "dependencies": {
-    "xmldom": "^0.1.22"
+    "jsdom": "^11.3.0",
+    "xmlshim": "^0.2.1"
   },
   "devDependencies": {
     "chai": "^3.0.0",
@@ -19,8 +20,7 @@
     "gulp-insert": "^0.4.0",
     "gulp-rename": "^1.2.2",
     "gulp-replace": "^0.5.3",
-    "mocha": "^2.2.5",
-    "xmldom": "^0.1.22"
+    "mocha": "^2.2.5"
   },
   "scripts": {
     "blockly:upgrade": "git submodule init && git submodule update --recursive --remote",

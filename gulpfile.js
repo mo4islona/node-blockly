@@ -5,32 +5,24 @@ var gulp = require('gulp'),
     rename = require("gulp-rename"),
     insert = require('gulp-insert');
 
-var document = `
-var document = {
-   createTextNode: function() {},
-   createElement: function() {
-      return {
-        hasChildNodes: function() {},
-        hasAttributes: function() {},
-        setAttribute: function() {},
-        appendChild: function() {}
-      }
-   }
-}
-`;
-
 var _browserRename = function(path) {
   path.basename += "_browser";
 }
+
+var document = `var JSDOM = require('jsdom').JSDOM;
+      var window = (new JSDOM()).window;
+      var document = window.document;`
 
 gulp.task('blockly', function() {
   return gulp.src('blockly/blockly_compressed.js')
       .pipe(replace(/goog\.global\s*=\s*this;/, 'goog.global=global;'))
       .pipe(insert.wrap(`
-      var DOMParser = require("xmldom").DOMParser; 
-      var XMLSerializer = require("xmldom").XMLSerializer; 
       ${document}
-      module.exports = (function(){`,
+      var DOMParser = window.DOMParser;
+      var xmlshim = require('xmlshim');
+      var XMLSerializer = xmlshim.XMLSerializer;
+      var DOMParser = xmlshim.DOMParser; 
+      module.exports = (function(){ // `,
           //....ORIGINAL CODE....
           `Blockly.goog=goog;return Blockly;
       })()`))
@@ -41,7 +33,7 @@ gulp.task('blockly_browser', function() {
   return gulp.src('blockly/blockly_compressed.js')
       .pipe(replace(/goog\.global\s*=\s*this;/, 'goog.global=window;'))
       .pipe(insert.wrap(`
-      module.exports = (function(){`,
+      module.exports = (function(){ //`,
           //....ORIGINAL CODE....
           `Blockly.goog=goog;return Blockly;
       })()`))
