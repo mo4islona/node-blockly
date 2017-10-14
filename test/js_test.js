@@ -39,6 +39,25 @@ describe('JS Generator', function() {
 
     assert.equal(code, '')
   });
+
+
+  it('should convert example from server', function() {
+    var code = xmlToJs(`<xml xmlns="http://www.w3.org/1999/xhtml">
+  <variables></variables>
+  <block type="controls_repeat_ext" id="(BFo|WQ,-6A?iUwjWMq*" x="238" y="63">
+    <value name="TIMES">
+      <shadow type="math_number" id="QU(s4?wLG]]%mQZ:pPQP">
+        <field name="NUM">10</field>
+      </shadow>
+    </value>
+  </block>
+</xml>`);
+
+    assert.equal(code, `for (var count = 0; count < 10; count++) {\n}\n`)
+  });
 });
+
+
+
 
 
