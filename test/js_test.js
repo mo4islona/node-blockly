@@ -15,10 +15,9 @@ var res = `if (6 * 7 == 42) {
 
 function xmlToJs(xml) {
   try {
-    var xml = Blockly.Xml.textToDom(xml);
+    xml = Blockly.Xml.textToDom(xml);
   }
   catch (e) {
-    console.log(e);
     return ''
   }
 

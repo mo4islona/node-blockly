@@ -13,7 +13,7 @@ else:
 
 function xmlToPython(xml) {
   try {
-    var xml = Blockly.Xml.textToDom(xml);
+    xml = Blockly.Xml.textToDom(xml);
   }
   catch (e) {
     return ''

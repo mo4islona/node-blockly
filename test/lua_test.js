@@ -14,10 +14,9 @@ end
 
 function xmlToLua(xml) {
   try {
-    var xml = Blockly.Xml.textToDom(xml);
+    xml = Blockly.Xml.textToDom(xml);
   }
   catch (e) {
-    console.log(e);
     return ''
   }
   
