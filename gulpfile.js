@@ -15,7 +15,7 @@ var document = `var JSDOM = require('jsdom').JSDOM;
 
 function blockly() {
   return gulp.src('blockly/blockly_compressed.js')
-    .pipe(replace(/goog\.global\s*=\s*this;/, 'goog.global=global;'))
+    .pipe(replace(/goog\.global\s*=\s*this\|\|self;/, 'goog.global=global;'))
     .pipe(replace(
       'Blockly.Block.prototype.jsonInitStyle_=function(a,b){var c=a.style;try{this.setStyle(c)}catch(d){console.warn(b+"Style does not exist: ",c)}}',
       'Blockly.Block.prototype.jsonInitStyle_=function(){}'))
@@ -48,7 +48,7 @@ function blocks() {
   return gulp.src('blockly/blocks_compressed.js')
     .pipe(insert.wrap(`
         module.exports = function(Blockly){
-          var goog = Blockly.goog;
+          var goog = Blockly.goog;        
           ${document}
           Blockly.Blocks={};`,
       //....ORIGINAL CODE....
@@ -62,7 +62,6 @@ function blocks_browser() {
     .pipe(insert.wrap(`
         /* eslint-disable */
         module.exports = function(Blockly){
-          var goog = Blockly.goog;
           Blockly.Blocks={};`,
       //....ORIGINAL CODE....
       `return Blockly.Blocks;
