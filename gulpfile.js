@@ -10,8 +10,10 @@ var _browserRename = function (path) {
 };
 
 var document = `var JSDOM = require('jsdom').JSDOM;
-      var window = (new JSDOM()).window;
-      var document = window.document;`;
+ var window = (new JSDOM()).window;
+ var document = window.document;
+ global.Element = window.Element;  
+`;
 
 function blockly() {
   return gulp.src('blockly/blockly_compressed.js')
