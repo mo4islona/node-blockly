@@ -25,7 +25,7 @@
     "gulp-insert": "^0.5.0",
     "gulp-rename": "^1.4.0",
     "gulp-replace": "^1.0.0",
-    "mocha": "^4.1.0"
+    "mocha": "^6.1.4"
   },
   "scripts": {
     "blockly:upgrade": "git submodule init && git submodule update --recursive --remote",
