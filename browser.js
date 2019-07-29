@@ -1,6 +1,5 @@
 var Blockly = require('./lib/blockly_compressed_browser');
 
-Blockly.setTheme(Blockly.Themes.Classic);
 Blockly.setLocale = function(locale) {
   Blockly.Msg = Object.assign(locale, Blockly.Msg);
   if(typeof Blockly.Msg === 'function') Blockly.Msg = Blockly.Msg();

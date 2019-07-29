@@ -3,7 +3,20 @@
 var gulp = require('gulp'),
   replace = require('gulp-replace'),
   rename = require("gulp-rename"),
-  insert = require('gulp-insert');
+  insert = require('gulp-insert'),
+  beautifier = require('gulp-beautify');
+
+function skippable(condition, fn){
+  if (condition) {
+    return fn;
+  }
+
+  function skipped(cb){
+    cb();
+  }
+  skipped.displayName = (fn.name || fn.displayName) + ' (skipped)';
+  return skipped;
+}
 
 var _browserRename = function (path) {
   path.basename += "_browser";
@@ -12,15 +25,16 @@ var _browserRename = function (path) {
 var document = `var JSDOM = require('jsdom').JSDOM;
  var window = (new JSDOM()).window;
  var document = window.document;
- var Element = window.Element;  
+ var Element = window.Element; 
+ var Node = window.Node; 
+ var self = this; 
 `;
 
 function blockly() {
   return gulp.src('blockly/blockly_compressed.js')
-    .pipe(replace(/goog\.global\s*=\s*this\|\|self;/, 'goog.global=global;'))
     .pipe(replace(
-      'Blockly.Block.prototype.jsonInitStyle_=function(a,b){var c=a.style;try{this.setStyle(c)}catch(d){console.warn(b+"Style does not exist: ",c)}}',
-      'Blockly.Block.prototype.jsonInitStyle_=function(){}'))
+      "this.navigator&&this.navigator.userAgent||",
+      ''))
     .pipe(insert.wrap(`
       ${document}
       var xmlshim = require('xmlshim');
@@ -35,7 +49,9 @@ function blockly() {
 
 function blockly_browser() {
   return gulp.src('blockly/blockly_compressed.js')
-    .pipe(replace(/goog\.global\s*=\s*this;/, 'goog.global=window;'))
+    .pipe(replace(
+      "this.navigator&&this.navigator.userAgent||",
+      'window.navigator&&window.navigator.userAgent||'))
     .pipe(insert.wrap(`
       /* eslint-disable */
       module.exports = (function(){ //`,
@@ -110,6 +126,12 @@ function i18n() {
     .pipe(gulp.dest('lib/i18n/'))
 }
 
+function beautify() {
+  return gulp.src('lib/*.js')
+    .pipe(beautifier.js({indent_size: 2}))
+    .pipe(gulp.dest('lib/'));
+};
+
 exports.build = gulp.series(
   blocks,
   blocks_browser,
@@ -121,6 +143,7 @@ exports.build = gulp.series(
   dart,
   python,
   lua,
+  skippable(process.env.DEBUG, beautify),
 );
 
 
