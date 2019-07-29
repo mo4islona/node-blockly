@@ -1,14 +1,12 @@
 const Blockly = require('./lib/blockly_compressed_browser');
 
-Blockly.setTheme(Blockly.Themes.Classic);
-Blockly.setLocale = function(locale) {
-  Blockly.Msg = Object.assign(locale, Blockly.Msg);
-  Blockly.Msg = Blockly.Msg();
-}
-
-Blockly.utils.getMessageArray_ = function () {
-  return Blockly.Msg
-}
+Blockly.setLocale = function (locale) {
+  if (typeof locale.default === 'function') {
+    Blockly.Msg = Object.assign(Blockly.Msg, locale.default());
+  } else {
+    Blockly.Msg = Object.assign(locale, Blockly.Msg)();
+  }
+};
 
 Blockly.setLocale(require('./lib/i18n/en'))
 
