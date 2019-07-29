@@ -3,7 +3,7 @@
 var assert = require('chai').assert;
 
 var Blockly = require('../index.js'),
-    ifBlockXml = require('./xml/if');
+  ifBlockXml = require('./xml/if');
 
 
 var res = `if (6 * 7 == 42) {
@@ -16,8 +16,7 @@ var res = `if (6 * 7 == 42) {
 function xmlToJs(xml) {
   try {
     xml = Blockly.Xml.textToDom(xml);
-  }
-  catch (e) {
+  } catch (e) {
     return ''
   }
 
@@ -26,21 +25,21 @@ function xmlToJs(xml) {
   return Blockly.JavaScript.workspaceToCode(workspace);
 }
 
-describe('JS Generator', function() {
-  it('should convert valid xml to js code', function() {
+describe('JS Generator', function () {
+  it('should convert valid xml to js code', function () {
     var code = xmlToJs(ifBlockXml);
 
     assert.equal(code, res)
   });
 
-  it('should convert invalid xml to empty string', function() {
+  it('should convert invalid xml to empty string', function () {
     var code = xmlToJs('<block type="math_number"><field name="NUM">42</field></block>');
 
     assert.equal(code, '')
   });
 
 
-  it('should convert for loop', function() {
+  it('should convert for loop', function () {
     var code = xmlToJs(`<xml xmlns="http://www.w3.org/1999/xhtml">
   <variables></variables>
   <block type="controls_repeat_ext" id="(BFo|WQ,-6A?iUwjWMq*" x="238" y="63">
@@ -55,7 +54,7 @@ describe('JS Generator', function() {
     assert.equal(code, `for (var count = 0; count < 10; count++) {\n}\n`)
   });
 
-  it('should convert example with variables', function() {
+  it('should convert example with variables', function () {
     var code = xmlToJs(`
     <xml xmlns="http://www.w3.org/1999/xhtml">
       <variables>
@@ -127,7 +126,39 @@ describe('JS Generator', function() {
   </block>
 </xml>
 `);
-
     assert.equal(code.replace(/([\;\{\}\)\,])\s+/g, '$1'), `var left_sensor,right_sensor,speed,engineTorque,breakingTorque,steeringAngle;function control(left_sensor,right_sensor,speed){engineTorque = 0;breakingTorque = 0;steeringAngle = 0;return [engineTorque,breakingTorque,steeringAngle];}`)
+  });
+
+  it('should convert xml with shadows', function () {
+    var code = xmlToJs(`<xml>
+  <block type="controls_if" id="hK2]_dlpI+nf6ePQ4kvv" x="68" y="60">
+    <value name="IF0">
+      <block type="logic_compare" id=":g:5$YT#TQ@-,#\`R::k!">
+        <field name="OP">EQ</field>
+        <value name="A">
+          <block type="math_arithmetic" id="CT/qv/xz7FmADrS7O{(j">
+            <field name="OP">ADD</field>
+            <value name="A">
+              <shadow type="math_number" id="@8XPI]MO\`reN!WFIzl13">
+                <field name="NUM">1</field>
+              </shadow>
+            </value>
+            <value name="B">
+              <shadow type="math_number" id="rsMjwK+M!rD,jb@Drv/H">
+                <field name="NUM">1</field>
+              </shadow>
+            </value>
+          </block>
+        </value>
+        <value name="B">
+          <block type="math_number" id="/h!vy1;=}gShAka/A{/c">
+            <field name="NUM">2</field>
+          </block>
+        </value>
+      </block>
+    </value>
+  </block>
+</xml>`);
+    assert.equal(code, 'if (1 + 1 == 2) {\n}\n')
   });
 });
