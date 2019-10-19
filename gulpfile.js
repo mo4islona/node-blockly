@@ -42,7 +42,7 @@ function blockly() {
       var DOMParser = xmlshim.DOMParser; 
       module.exports = (function(){ // `,
       //....ORIGINAL CODE....
-      `Blockly.goog=goog;return Blockly;
+      `return Blockly;
       })()`))
     .pipe(gulp.dest('lib'))
 }
@@ -56,7 +56,7 @@ function blockly_browser() {
       /* eslint-disable */
       module.exports = (function(){ //`,
       //....ORIGINAL CODE....
-      `Blockly.goog=goog;return Blockly;
+      `return Blockly;
       })()`))
     .pipe(rename(_browserRename))
     .pipe(gulp.dest('lib'))
