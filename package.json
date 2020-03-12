@@ -9,7 +9,8 @@
   "files": [
     "lib/",
     "/*.js",
-    "!/gulpfile.js"
+    "!/gulpfile.js",
+    "index.d.ts"
   ],
   "keywords": [
     "blockly",
